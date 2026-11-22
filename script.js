@@ -454,18 +454,13 @@ contactCanvas.parentElement.addEventListener('pointermove', (event) => {
 resizeCanvas(contactCanvas, contactCtx);
 drawContactSphere();
 
-// Contact composer: submit to an invisible frame so visitors stay on the portfolio.
+// Contact composer: use FormSubmit's AJAX endpoint and show its real delivery response.
 const contactForm = document.querySelector('#contactForm');
-const contactDelivery = document.querySelector('#contactDelivery');
 const formStatus = document.querySelector('#formStatus');
 const submitButton = contactForm.querySelector('button[type="submit"]');
 const submitLabel = submitButton.querySelector('span');
-let deliveryPending = false;
-let deliveryTimer;
 
 const finishDelivery = (message, success = false) => {
-  clearTimeout(deliveryTimer);
-  deliveryPending = false;
   submitButton.disabled = false;
   submitButton.classList.remove('sending');
   submitLabel.textContent = 'Send message';
@@ -473,19 +468,13 @@ const finishDelivery = (message, success = false) => {
   formStatus.textContent = message;
 };
 
-contactDelivery.addEventListener('load', () => {
-  if (!deliveryPending) return;
-  contactForm.reset();
-  finishDelivery('Message sent successfully. Thank you. I will respond as soon as possible.', true);
-});
-
-contactForm.addEventListener('submit', (event) => {
+contactForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
   const fields = [...contactForm.querySelectorAll('input, textarea')];
   fields.forEach((field) => field.classList.remove('invalid'));
   formStatus.classList.remove('success');
   const invalid = fields.filter((field) => field.type !== 'hidden' && !field.checkValidity());
   if (invalid.length) {
-    event.preventDefault();
     invalid.forEach((field) => field.classList.add('invalid'));
     formStatus.textContent = 'Please complete your name, a valid email and your message.';
     invalid[0].focus();
@@ -496,11 +485,29 @@ contactForm.addEventListener('submit', (event) => {
   submitButton.classList.add('sending');
   submitLabel.textContent = 'Sending message';
   formStatus.textContent = 'Sending securely...';
-  deliveryPending = true;
-  deliveryTimer = setTimeout(() => {
-    if (!deliveryPending) return;
-    finishDelivery('Delivery is taking longer than expected. Please try again or email sreenathsuman1@gmail.com directly.');
-  }, 20000);
+
+  try {
+    const payload = Object.fromEntries(new FormData(contactForm).entries());
+    const response = await fetch('https://formsubmit.co/ajax/sreenathsuman1@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json().catch(() => ({}));
+    const delivered = result.success === true || result.success === 'true';
+
+    if (!response.ok || !delivered) {
+      throw new Error(result.message || `FormSubmit returned status ${response.status}`);
+    }
+
+    contactForm.reset();
+    finishDelivery('Message sent successfully. Thank you. I will respond as soon as possible.', true);
+  } catch (error) {
+    finishDelivery(`FormSubmit could not confirm delivery: ${error.message}. Please email sreenathsuman1@gmail.com directly.`);
+  }
 });
 
 const copyButton = document.querySelector('.copy-email');
