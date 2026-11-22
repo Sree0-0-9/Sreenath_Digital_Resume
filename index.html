@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sreenath Suman is a Finance, Data and Business Analyst in Auckland who turns complex information into confident decisions.">
+  <meta name="theme-color" content="#030b12">
+  <meta property="og:title" content="Sreenath Suman | Finance, Data and Business Analyst">
+  <meta property="og:description" content="Financial insight. Trusted data. Practical business change.">
+  <meta property="og:type" content="website">
+  <title>Sreenath Suman | Finance, Data and Business Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="ambientCanvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Sreenath Suman home">
+        <span class="brand-orbit"><b>SS</b></span>
+        <span class="brand-name">Sreenath Suman<small>Decision intelligence</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span class="sr-only">Toggle navigation</span></button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#experience">Journey</a><a href="#skills">Capabilities</a><a href="#projects">Work</a><a href="#education">Education</a>
+        <a class="nav-contact" href="#contact">Let's talk <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-grid shell">
+        <div class="hero-copy">
+          <div class="availability"><i></i> Auckland, New Zealand <span>Open to analytical roles</span></div>
+          <p class="hero-kicker">Finance <b>×</b> Data <b>×</b> Business</p>
+          <h1>Making the<br><em>next decision</em><br>clearer.</h1>
+          <p class="hero-lead">I turn complex financial, operational and customer data into trusted models, meaningful insight and practical business improvement.</p>
+          <div class="role-console" aria-live="polite"><span>I work as</span><strong id="roleText">a Finance Analyst</strong><i></i></div>
+          <div class="hero-actions">
+            <a class="button button-primary magnetic" href="#projects"><span>Explore selected work</span><b>↗</b></a>
+            <a class="button button-ghost magnetic" href="#experience"><span>View career journey</span><b>↗</b></a>
+          </div>
+          <div class="hero-socials"><a href="https://www.linkedin.com/in/sreenathsuman" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a href="https://github.com/Sree0-0-9" target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a href="mailto:sreenathsuman1@gmail.com">Email <span>↗</span></a></div>
+        </div>
+
+        <div class="hero-stage" id="heroStage" aria-label="Sreenath Suman in an analytics workspace">
+          <div class="hero-halo halo-one"></div><div class="hero-halo halo-two"></div>
+          <div class="hero-image-wrap tilt-surface"><img src="assets/sreenath-hero-cinematic.png" alt="Sreenath Suman in a finance and analytics workspace"><div class="image-vignette"></div><div class="scan-line"></div><div class="image-label"><span>01</span> Auckland analytics studio</div></div>
+          <div class="floating-card card-finance" data-depth="1.4"><small>FINANCIAL SIGNAL</small><strong>Forecast</strong><svg viewBox="0 0 120 34" aria-hidden="true"><path d="M2 30 C20 26,24 14,40 18 S67 7,80 13 S103 4,118 3"/></svg></div>
+          <div class="floating-card card-data" data-depth="1.8"><span class="pulse-dot"></span><div><small>DATA CONFIDENCE</small><strong>Validated</strong></div></div>
+          <div class="floating-card card-business" data-depth="1.1"><small>BUSINESS CHANGE</small><strong>From insight to action</strong></div>
+          <div class="coordinate coordinate-a">36.8509° S</div><div class="coordinate coordinate-b">174.7645° E</div>
+        </div>
+      </div>
+      <div class="impact-deck shell" aria-label="Career impact">
+        <article><span class="metric-number" data-count="5" data-suffix="+">0</span><p>Years across analysis and financial services</p></article>
+        <article><span class="metric-number" data-count="75" data-suffix="K+">0</span><p>Records integrated and validated</p></article>
+        <article><span class="metric-number" data-count="7" data-suffix="">0</span><p>Power BI dashboards delivered</p></article>
+        <article><span class="metric-number" data-count="40" data-suffix="">0</span><p>UAT scenarios completed at Leap</p></article>
+      </div>
+      <a class="scroll-cue" href="#about"><span>Scroll to explore</span><i></i></a>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="shell">
+        <div class="section-heading reveal"><p class="eyebrow">01 / Professional profile</p><h2>Three lenses.<br><em>One decision system.</em></h2><p>Strong analysis does more than produce a number. It connects financial context, trustworthy data and the operational reality behind the decision.</p></div>
+        <div class="decision-system reveal" id="decisionSystem">
+          <div class="system-rings" aria-hidden="true"><i></i><i></i><i></i></div>
+          <button class="lens-node finance-node active" data-lens="finance" type="button"><span>01</span><strong>Finance</strong><small>Value and performance</small></button>
+          <button class="lens-node data-node" data-lens="data" type="button"><span>02</span><strong>Data</strong><small>Evidence and confidence</small></button>
+          <button class="lens-node business-node" data-lens="business" type="button"><span>03</span><strong>Business</strong><small>Process and adoption</small></button>
+          <div class="system-core"><span>DECISION</span><strong>What changed?</strong><b>Why does it matter?</b><em>What happens next?</em></div>
+          <div class="lens-readout" aria-live="polite"><span id="lensIndex">01</span><div><small id="lensLabel">FINANCE LENS</small><p id="lensDescription">Budgeting, forecasting, financial modelling, profitability, cost attribution, variance analysis and decision support.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section journey-section" id="experience">
+      <div class="shell journey-layout">
+        <div class="journey-intro reveal"><p class="eyebrow">02 / Career journey</p><h2>Built through<br><em>real decisions.</em></h2><p>Each role strengthened a different part of the same capability: understanding the business question, building reliable analysis and helping people act on it.</p><div class="journey-legend"><span><i class="nz"></i> New Zealand</span><span><i></i> India</span></div></div>
+        <div class="signal-path"><div class="path-line"><span id="pathProgress"></span></div>
+          <article class="journey-card reveal" data-year="2026"><button class="journey-summary" type="button" aria-expanded="false"><span class="journey-node"></span><div class="journey-meta"><small>APR 2026 TO JUL 2026 · AUCKLAND</small><b>Technology, financial and commercial research insights</b></div><div class="journey-title"><h3>Research Analyst</h3><p>Technology Investment Network</p></div><div class="journey-impact"><strong>60</strong><span>NZ technology companies analysed</span></div><span class="expand-icon">+</span></button><div class="journey-details"><div><p>Analysed financial, investment and market information, corrected more than 10,000 records and automated recurring analysis from approximately two weeks to several hours.</p><div class="evidence-row"><span>S&amp;P Capital IQ</span><span>Python</span><span>SQL</span><span>Power BI</span></div><small>Role focus: technology market research, financial analysis, data quality and senior stakeholder insight</small></div></div></article>
+          <article class="journey-card reveal" data-year="2021–25"><button class="journey-summary" type="button" aria-expanded="false"><span class="journey-node"></span><div class="journey-meta"><small>NOV 2021 TO MAR 2025 · BENGALURU</small><b>Finance, data and product performance</b></div><div class="journey-title"><h3>Finance, Data and Business Performance Analyst</h3><p>Leap Finance</p></div><div class="journey-impact"><strong>50K</strong><span>records integrated from five systems</span></div><span class="expand-icon">+</span></button><div class="journey-details"><div><p>Built a governed analytical foundation in Azure SQL, delivered four Power BI dashboards across 25 KPIs and reduced recurring reporting from three days to six hours.</p><div class="evidence-row"><span>Azure SQL</span><span>Power Query</span><span>DAX</span><span>Jira</span><span>UAT</span></div><small>Official role: Assistant Manager Credit</small></div></div></article>
+          <article class="journey-card reveal" data-year="2019–21"><button class="journey-summary" type="button" aria-expanded="false"><span class="journey-node"></span><div class="journey-meta"><small>SEP 2019 TO MAY 2021 · CHENNAI</small><b>Product reporting and systems</b></div><div class="journey-title"><h3>Finance, Data and Systems Analyst</h3><p>The Muthoot Group</p></div><div class="journey-impact"><strong>75%</strong><span>less time spent on weekly reporting</span></div><span class="expand-icon">+</span></button><div class="journey-details"><div><p>Integrated 25,000 CRM, account and transaction records, delivered three Power BI dashboards across 18 KPIs and supported 30 UAT scenarios for product system improvements.</p><div class="evidence-row"><span>SQL</span><span>Power BI</span><span>Advanced Excel</span><span>Core Banking</span></div><small>Official role: Credit Manager</small></div></div></article>
+          <article class="journey-card reveal" data-year="2017"><button class="journey-summary" type="button" aria-expanded="false"><span class="journey-node"></span><div class="journey-meta"><small>FEB 2017 TO AUG 2017 · CHENNAI</small><b>Finance systems foundation</b></div><div class="journey-title"><h3>Junior Finance and Business Data Analyst</h3><p>Accenture</p></div><div class="journey-impact"><strong>ERP</strong><span>finance process and data controls</span></div><span class="expand-icon">+</span></button><div class="journey-details"><div><p>Reconciled Oracle ERP finance data, translated stakeholder needs into process maps and business rules, and supported UAT, issue management and process guidance.</p><div class="evidence-row"><span>Oracle ERP</span><span>Excel</span><span>Process Mapping</span><span>SOPs</span></div><small>Official role: Process Associate</small></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills">
+      <div class="shell">
+        <div class="section-heading centered reveal"><p class="eyebrow">03 / Capability constellation</p><h2>Tools orbit the problem.<br><em>Judgement drives the outcome.</em></h2><p>Drag to rotate, scroll to zoom and select a discipline to reorganise the constellation.</p></div>
+        <div class="skills-console reveal"><div class="console-topbar"><span><i></i> INTERACTIVE CAPABILITY MAP</span><small>LIVE · 24 NODES</small></div><div class="skill-filters" role="group" aria-label="Filter capability sphere"><button class="skill-filter active" data-skill-filter="all" type="button">All systems</button><button class="skill-filter" data-skill-filter="finance" type="button">Finance</button><button class="skill-filter" data-skill-filter="data" type="button">Data</button><button class="skill-filter" data-skill-filter="business" type="button">Business</button></div>
+          <div class="skills-canvas-wrap"><canvas id="skillsCanvas" aria-label="Interactive sphere of finance, data and business capabilities"></canvas><button class="skills-core" id="skillsCore" type="button" aria-label="Show the complete decision intelligence capability map"><span>DECISION</span><strong>INTELLIGENCE</strong><small>SELECT</small></button><div class="skill-tooltip" id="skillTooltip"><small>CATEGORY</small><strong>Capability</strong><span>Drag sphere to explore</span></div><div class="canvas-hint"><span>↔ DRAG</span><span>⌁ SCROLL</span><span>● SELECT</span></div></div>
+          <div class="technology-stream" aria-label="Technology toolkit"><div class="stream-track"><span>Power BI</span><i></i><span>Azure SQL</span><i></i><span>Python</span><i></i><span>Advanced Excel</span><i></i><span>DAX</span><i></i><span>Power Query</span><i></i><span>Jira</span><i></i><span>Oracle ERP</span><i></i><span>R</span><i></i><span>Power BI</span><i></i><span>Azure SQL</span><i></i><span>Python</span><i></i><span>Advanced Excel</span><i></i><span>DAX</span><i></i><span>Power Query</span><i></i><span>Jira</span><i></i><span>Oracle ERP</span><i></i><span>R</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="shell"><div class="project-heading reveal"><div><p class="eyebrow">04 / Selected evidence</p><h2>Work that makes<br><em>the thinking visible.</em></h2></div><div class="project-filters" role="group" aria-label="Filter projects"><button class="project-filter active" data-project-filter="all" type="button">All</button><button class="project-filter" data-project-filter="finance" type="button">Finance</button><button class="project-filter" data-project-filter="data" type="button">Data</button><button class="project-filter" data-project-filter="business" type="button">Business</button></div></div>
+        <div class="project-grid">
+          <article class="project-card project-featured reveal tilt-card" data-project-category="finance data"><div class="project-media"><img src="assets/loan-pricing.png" alt="Risk based loan pricing analysis preview"><div class="media-grid"></div><span>FEATURED ANALYSIS</span></div><div class="project-body"><small>FINANCE · CREDIT ANALYTICS</small><h3>Risk Based Loan Pricing</h3><p>Analysed 14,746 lending records to identify how credit grade and debt to income influence risk based pricing.</p><div class="project-metric"><strong>14,746</strong><span>records modelled</span></div><div class="project-tags"><span>Python</span><span>Decision Tree</span><span>Model Validation</span></div><a href="https://github.com/Sree0-0-9/lendingclub-loan-interest-rate-modelling" target="_blank" rel="noreferrer">View case study <b>↗</b></a></div></article>
+          <article class="project-card reveal tilt-card" data-project-category="finance data"><div class="project-orbit-art"><span>63.1%</span><i></i><i></i><i></i></div><div class="project-body"><small>PORTFOLIO ANALYTICS</small><h3>Risk Factor Modelling</h3><p>Estimated market, size and value exposure across 192 monthly observations using Fama French regression.</p><div class="project-tags"><span>Python</span><span>OLS</span><span>Fama French</span></div><a href="https://github.com/Sree0-0-9/portfolio-risk-factor-modelling" target="_blank" rel="noreferrer">View project <b>↗</b></a></div></article>
+          <article class="project-card reveal tilt-card" data-project-category="data"><div class="project-media"><img src="assets/customer-churn.png" alt="Customer churn prediction dashboard"><div class="media-grid"></div></div><div class="project-body"><small>PREDICTIVE ANALYTICS</small><h3>Customer Churn Prediction</h3><p>Compared classification models to identify retention drivers and customers at risk of leaving.</p><div class="project-tags"><span>LightGBM</span><span>Python</span><span>Evaluation</span></div><a href="https://github.com/Sree0-0-9/platefulnz-customer-churn-prediction" target="_blank" rel="noreferrer">View project <b>↗</b></a></div></article>
+          <article class="project-card reveal tilt-card" data-project-category="data business"><div class="schema-art" aria-hidden="true"><span>FACT</span><b>DIM</b><b>DIM</b><b>DIM</b><b>DIM</b><i></i><i></i><i></i><i></i></div><div class="project-body"><small>DATA ARCHITECTURE</small><h3>Macroeconomic Data Warehouse</h3><p>Translated reporting requirements into a reusable SQLite warehouse with facts, dimensions and analytical queries.</p><div class="project-tags"><span>SQL</span><span>Star Schema</span><span>SQLite</span></div><a href="https://github.com/Sree0-0-9/macroeconomic-data-warehouse-sqlite" target="_blank" rel="noreferrer">View project <b>↗</b></a></div></article>
+          <article class="project-card reveal tilt-card" data-project-category="finance"><div class="scenario-art"><span>BASE</span><span>BEST</span><span>STRESS</span><svg viewBox="0 0 260 100" aria-hidden="true"><path d="M0 84 C50 78 79 60 118 55 S188 35 260 18"/><path d="M0 88 C58 85 98 74 140 70 S220 62 260 52"/><path d="M0 91 C48 90 92 88 136 91 S213 80 260 78"/></svg></div><div class="project-body"><small>FINANCIAL MODELLING</small><h3>Retirement Sensitivity Engine</h3><p>Tested contributions, returns, inflation and asset allocation across base, best and stress outcomes.</p><div class="project-tags"><span>Excel</span><span>Monte Carlo</span><span>Sensitivity</span></div><a href="https://github.com/Sree0-0-9/superannuation-retirement-planning-sensitivity-analysis" target="_blank" rel="noreferrer">View project <b>↗</b></a></div></article>
+          <article class="project-card reveal tilt-card" data-project-category="business finance"><div class="gantt-art"><i style="--w:72%;--x:0"></i><i style="--w:52%;--x:18%"></i><i style="--w:62%;--x:34%"></i><i style="--w:38%;--x:60%"></i></div><div class="project-body"><small>BUSINESS DECISION SUPPORT</small><h3>Project Scheduling and Cost</h3><p>Evaluated critical paths, schedule risk, cost trade offs and delivery improvement options.</p><div class="project-tags"><span>PERT</span><span>EVM</span><span>ProjectLibre</span></div><a href="https://github.com/Sree0-0-9/conference-project-scheduling-analysis" target="_blank" rel="noreferrer">View project <b>↗</b></a></div></article>
+        </div><a class="all-projects magnetic" href="https://github.com/Sree0-0-9?tab=repositories" target="_blank" rel="noreferrer"><span>Explore the complete GitHub portfolio</span><b>↗</b></a>
+      </div>
+    </section>
+
+    <section class="section education-section" id="education"><div class="shell"><div class="section-heading reveal"><p class="eyebrow">05 / Education and recognition</p><h2>Finance foundations.<br><em>Analytical depth.</em></h2></div><div class="education-grid"><div class="degree-stack">
+      <article class="degree-card reveal"><span>2025–2026</span><div><small>THE UNIVERSITY OF AUCKLAND</small><h3>Master of Business Analytics</h3><p>Financial Technology · Financial Risk Analysis · Financial Statement Analysis · Business Data Analytics</p></div><b>01</b></article>
+      <article class="degree-card reveal"><span>2017–2019</span><div><small>HINDUSTAN UNIVERSITY</small><h3>Master of Business Administration</h3><p>Finance and Marketing · Corporate Finance · Financial Management · Business Strategy</p></div><b>02</b></article>
+      <article class="degree-card reveal"><span>2012–2015</span><div><small>UNIVERSITY OF MADRAS</small><h3>Bachelor of Commerce</h3><p>Accounting · Finance · Economics</p></div><b>03</b></article>
+      </div><aside class="recognition-panel reveal"><div class="recognition-header"><span>RECOGNITION SIGNALS</span><i></i></div><article><span>01</span><div><strong>Certified Counter Terrorist Financing Analyst</strong><small>AGZ Institute</small></div></article><article><span>02</span><div><strong>Employee of the Month</strong><small>Two time recipient · Leap Finance</small></div></article><article><span>03</span><div><strong>Pan India Top Performer</strong><small>The Muthoot Group</small></div></article><div class="work-rights"><i></i><div><small>NEW ZEALAND WORK RIGHTS</small><strong>Open Work Visa valid until 3 August 2029</strong><span>Full NZ Driver Licence · FinTechNZ member</span></div></div></aside></div></div></section>
+
+    <section class="section contact-section" id="contact"><div class="shell"><div class="section-heading centered reveal"><p class="eyebrow">06 / Start a conversation</p><h2>Let’s turn the next<br><em>question into clarity.</em></h2><p>For finance, data, business intelligence and business analysis opportunities across New Zealand.</p></div><div class="contact-grid">
+      <div class="contact-sphere-panel reveal"><div class="contact-panel-head"><span><i></i> INTERACTIVE CONTACT SPHERE</span><small>MOVE TO EXPLORE</small></div><canvas id="contactCanvas" aria-label="Interactive contact sphere"></canvas><div class="contact-core"><span>SS</span></div><a class="contact-node node-email" href="mailto:sreenathsuman1@gmail.com"><span>EMAIL</span><strong>sreenathsuman1@gmail.com</strong></a><a class="contact-node node-linkedin" href="https://www.linkedin.com/in/sreenathsuman" target="_blank" rel="noreferrer"><span>NETWORK</span><strong>LinkedIn ↗</strong></a><a class="contact-node node-github" href="https://github.com/Sree0-0-9" target="_blank" rel="noreferrer"><span>WORK</span><strong>GitHub ↗</strong></a><div class="contact-node node-location"><span>LOCATION</span><strong>Auckland, NZ</strong></div></div>
+      <div class="message-panel reveal"><div class="message-heading"><span>Send me a message</span><i>06</i></div><p>Share the opportunity or business problem. Your message is sent securely from this page without opening another application.</p><form id="contactForm" novalidate><input type="hidden" name="_subject" value="New message from Sreenath Suman's portfolio"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"><label for="name">Your name<input id="name" name="name" type="text" autocomplete="name" placeholder="How should I address you?" required></label><label for="email">Your email<input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label><label for="message">Message<textarea id="message" name="message" rows="5" placeholder="Tell me what you are working on..." required></textarea></label><button class="button button-primary send-button magnetic" type="submit"><span>Send message</span><b aria-hidden="true">●</b></button><div class="form-status" id="formStatus" role="status" aria-live="polite"></div><small class="form-privacy">Delivered through FormSubmit. Your details are used only to reply to this enquiry.</small></form><div class="direct-contact"><span>Prefer direct contact?</span><a href="tel:+642902072084">+64 29 020 72084</a><button class="copy-email" type="button" data-email="sreenathsuman1@gmail.com">Copy email</button></div></div>
+    </div></div></section>
+  </main>
+
+  <footer><div class="shell footer-inner"><div><span class="footer-mark">SS</span><p>Sreenath Suman<br><small>Finance × Data × Business</small></p></div><p>Designed around decisions, not job titles.</p><span id="year"></span></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
