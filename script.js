@@ -87,7 +87,7 @@ function drawAmbient() {
     const dy = particle.y - ambientPointer.y;
     const pointerDistance = Math.hypot(dx, dy);
     if (pointerDistance < 170) {
-      ambientCtx.strokeStyle = `rgba(98,230,197,${(1 - pointerDistance / 170) * .09})`;
+      ambientCtx.strokeStyle = `rgba(155,92,255,${(1 - pointerDistance / 170) * .12})`;
       ambientCtx.beginPath();
       ambientCtx.moveTo(particle.x, particle.y);
       ambientCtx.lineTo(ambientPointer.x, ambientPointer.y);
@@ -98,7 +98,7 @@ function drawAmbient() {
       const other = ambientParticles[j];
       const distance = Math.hypot(particle.x - other.x, particle.y - other.y);
       if (distance < 110) {
-        ambientCtx.strokeStyle = `rgba(111,170,180,${(1 - distance / 110) * .045})`;
+        ambientCtx.strokeStyle = `rgba(106,133,255,${(1 - distance / 110) * .06})`;
         ambientCtx.beginPath();
         ambientCtx.moveTo(particle.x, particle.y);
         ambientCtx.lineTo(other.x, other.y);
@@ -106,7 +106,7 @@ function drawAmbient() {
       }
     }
 
-    const colors = { teal: 'rgba(98,230,197,.42)', cyan: 'rgba(85,191,245,.48)', brass: 'rgba(227,173,98,.5)', coral: 'rgba(255,130,111,.48)', violet: 'rgba(155,141,240,.5)' };
+    const colors = { teal: 'rgba(34,211,238,.58)', cyan: 'rgba(79,140,255,.60)', brass: 'rgba(255,200,87,.62)', coral: 'rgba(255,94,125,.60)', violet: 'rgba(155,92,255,.62)' };
     ambientCtx.fillStyle = colors[particle.tone];
     ambientCtx.beginPath();
     ambientCtx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
@@ -221,7 +221,7 @@ const skillCatalog = [
   ['Power BI','data'],['SQL','data'],['Python','data'],['DAX','data'],['Power Query','data'],['Azure SQL','data'],['Data Modelling','data'],['Data Governance','data'],
   ['Requirements','business'],['Process Mapping','business'],['UAT','business'],['Jira','business'],['Stakeholders','business'],['Business Rules','business'],['Change Delivery','business'],['SOPs','business']
 ];
-const skillPalette = { finance: '#e3ad62', data: '#55bff5', business: '#9b8df0' };
+const skillPalette = { finance: '#ffc857', data: '#22d3ee', business: '#ff4fd8' };
 let skillNodes = skillCatalog.map((item, index) => {
   const y = 1 - (index / (skillCatalog.length - 1)) * 2;
   const radius = Math.sqrt(1 - y * y);
@@ -279,7 +279,7 @@ function drawSkills() {
   skillCtx.save();
   skillCtx.translate(cx, cy);
   for (let i = 1; i <= 4; i += 1) {
-    const orbitColors = ['85,191,245', '155,141,240', '255,130,111', '227,173,98'];
+    const orbitColors = ['34,211,238', '79,140,255', '155,92,255', '255,79,216', '255,94,125', '255,200,87'];
     skillCtx.strokeStyle = `rgba(${orbitColors[i - 1]},${.035 + i * .008})`;
     skillCtx.lineWidth = 1;
     skillCtx.beginPath();
@@ -400,6 +400,8 @@ const contactCanvas = document.querySelector('#contactCanvas');
 const contactCtx = contactCanvas.getContext('2d');
 let contactPointer = { x: .5, y: .5 };
 let contactPhase = 0;
+const contactOrbitColors = ['34,211,238', '79,140,255', '155,92,255', '255,79,216', '255,94,125', '255,200,87'];
+const contactParticleColors = ['rgba(34,211,238,.80)', 'rgba(79,140,255,.82)', 'rgba(155,92,255,.82)', 'rgba(255,79,216,.78)', 'rgba(255,94,125,.80)', 'rgba(255,200,87,.86)'];
 function drawContactSphere() {
   const rect = contactCanvas.parentElement.getBoundingClientRect();
   const width = rect.width, height = rect.height;
@@ -410,8 +412,9 @@ function drawContactSphere() {
   const radius = Math.min(width, height) * .27;
 
   const glow = contactCtx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.7);
-  glow.addColorStop(0, 'rgba(98,230,197,.13)');
-  glow.addColorStop(.35, 'rgba(85,191,245,.06)');
+  glow.addColorStop(0, 'rgba(79,140,255,.18)');
+  glow.addColorStop(.28, 'rgba(155,92,255,.10)');
+  glow.addColorStop(.52, 'rgba(255,79,216,.05)');
   glow.addColorStop(1, 'rgba(3,11,18,0)');
   contactCtx.fillStyle = glow;
   contactCtx.fillRect(0, 0, width, height);
@@ -420,7 +423,7 @@ function drawContactSphere() {
     contactCtx.save();
     contactCtx.translate(cx, cy);
     contactCtx.rotate(contactPhase * (i % 2 ? 1 : -1) + i * .31);
-    contactCtx.strokeStyle = `rgba(${i % 3 === 0 ? '227,173,98' : i % 2 ? '85,191,245' : '98,230,197'},${.07 + i * .008})`;
+    contactCtx.strokeStyle = `rgba(${contactOrbitColors[i % contactOrbitColors.length]},${.08 + i * .009})`;
     contactCtx.lineWidth = 1;
     contactCtx.beginPath();
     contactCtx.ellipse(0, 0, radius * (1 + i * .055), radius * (.18 + i * .07), 0, 0, Math.PI * 2);
@@ -434,7 +437,7 @@ function drawContactSphere() {
     const flatten = .42 + (i % 4) * .08;
     const x = cx + Math.cos(angle) * ring;
     const y = cy + Math.sin(angle) * ring * flatten;
-    contactCtx.fillStyle = i % 7 === 0 ? 'rgba(227,173,98,.85)' : i % 3 === 0 ? 'rgba(85,191,245,.75)' : 'rgba(98,230,197,.65)';
+    contactCtx.fillStyle = contactParticleColors[i % contactParticleColors.length];
     contactCtx.shadowColor = contactCtx.fillStyle;
     contactCtx.shadowBlur = 8;
     contactCtx.beginPath();
@@ -451,18 +454,38 @@ contactCanvas.parentElement.addEventListener('pointermove', (event) => {
 resizeCanvas(contactCanvas, contactCtx);
 drawContactSphere();
 
-// Contact composer: FormSubmit's AJAX endpoint delivers without navigating away.
+// Contact composer: submit to an invisible frame so visitors stay on the portfolio.
 const contactForm = document.querySelector('#contactForm');
+const contactDelivery = document.querySelector('#contactDelivery');
 const formStatus = document.querySelector('#formStatus');
 const submitButton = contactForm.querySelector('button[type="submit"]');
 const submitLabel = submitButton.querySelector('span');
-contactForm.addEventListener('submit', async (event) => {
-  event.preventDefault();
+let deliveryPending = false;
+let deliveryTimer;
+
+const finishDelivery = (message, success = false) => {
+  clearTimeout(deliveryTimer);
+  deliveryPending = false;
+  submitButton.disabled = false;
+  submitButton.classList.remove('sending');
+  submitLabel.textContent = 'Send message';
+  formStatus.classList.toggle('success', success);
+  formStatus.textContent = message;
+};
+
+contactDelivery.addEventListener('load', () => {
+  if (!deliveryPending) return;
+  contactForm.reset();
+  finishDelivery('Message sent successfully. Thank you. I will respond as soon as possible.', true);
+});
+
+contactForm.addEventListener('submit', (event) => {
   const fields = [...contactForm.querySelectorAll('input, textarea')];
   fields.forEach((field) => field.classList.remove('invalid'));
   formStatus.classList.remove('success');
   const invalid = fields.filter((field) => field.type !== 'hidden' && !field.checkValidity());
   if (invalid.length) {
+    event.preventDefault();
     invalid.forEach((field) => field.classList.add('invalid'));
     formStatus.textContent = 'Please complete your name, a valid email and your message.';
     invalid[0].focus();
@@ -473,28 +496,11 @@ contactForm.addEventListener('submit', async (event) => {
   submitButton.classList.add('sending');
   submitLabel.textContent = 'Sending message';
   formStatus.textContent = 'Sending securely...';
-
-  try {
-    const payload = Object.fromEntries(new FormData(contactForm).entries());
-    const response = await fetch('https://formsubmit.co/ajax/sreenathsuman1@gmail.com', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    const result = await response.json().catch(() => ({}));
-    if (!response.ok || result.success === false || result.success === 'false') {
-      throw new Error('Message delivery failed');
-    }
-    contactForm.reset();
-    formStatus.classList.add('success');
-    formStatus.textContent = 'Message sent successfully. Thank you. I will respond as soon as possible.';
-  } catch {
-    formStatus.textContent = 'The message could not be sent. Please email sreenathsuman1@gmail.com directly.';
-  } finally {
-    submitButton.disabled = false;
-    submitButton.classList.remove('sending');
-    submitLabel.textContent = 'Send message';
-  }
+  deliveryPending = true;
+  deliveryTimer = setTimeout(() => {
+    if (!deliveryPending) return;
+    finishDelivery('Delivery is taking longer than expected. Please try again or email sreenathsuman1@gmail.com directly.');
+  }, 20000);
 });
 
 const copyButton = document.querySelector('.copy-email');
