@@ -63,7 +63,7 @@ function resizeAmbient() {
     vx: (Math.random() - .5) * .14,
     vy: (Math.random() - .5) * .14,
     r: Math.random() * 1.3 + .4,
-    tone: index % 9 === 0 ? 'brass' : index % 5 === 0 ? 'cyan' : 'teal'
+    tone: index % 11 === 0 ? 'coral' : index % 7 === 0 ? 'violet' : index % 5 === 0 ? 'brass' : index % 3 === 0 ? 'cyan' : 'teal'
   }));
 }
 
@@ -106,7 +106,7 @@ function drawAmbient() {
       }
     }
 
-    const colors = { teal: 'rgba(98,230,197,.45)', cyan: 'rgba(85,191,245,.45)', brass: 'rgba(227,173,98,.5)' };
+    const colors = { teal: 'rgba(98,230,197,.42)', cyan: 'rgba(85,191,245,.48)', brass: 'rgba(227,173,98,.5)', coral: 'rgba(255,130,111,.48)', violet: 'rgba(155,141,240,.5)' };
     ambientCtx.fillStyle = colors[particle.tone];
     ambientCtx.beginPath();
     ambientCtx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
@@ -221,7 +221,7 @@ const skillCatalog = [
   ['Power BI','data'],['SQL','data'],['Python','data'],['DAX','data'],['Power Query','data'],['Azure SQL','data'],['Data Modelling','data'],['Data Governance','data'],
   ['Requirements','business'],['Process Mapping','business'],['UAT','business'],['Jira','business'],['Stakeholders','business'],['Business Rules','business'],['Change Delivery','business'],['SOPs','business']
 ];
-const skillPalette = { finance: '#e3ad62', data: '#55bff5', business: '#62e6c5' };
+const skillPalette = { finance: '#e3ad62', data: '#55bff5', business: '#9b8df0' };
 let skillNodes = skillCatalog.map((item, index) => {
   const y = 1 - (index / (skillCatalog.length - 1)) * 2;
   const radius = Math.sqrt(1 - y * y);
@@ -279,7 +279,8 @@ function drawSkills() {
   skillCtx.save();
   skillCtx.translate(cx, cy);
   for (let i = 1; i <= 4; i += 1) {
-    skillCtx.strokeStyle = `rgba(98,230,197,${.035 + i * .008})`;
+    const orbitColors = ['85,191,245', '155,141,240', '255,130,111', '227,173,98'];
+    skillCtx.strokeStyle = `rgba(${orbitColors[i - 1]},${.035 + i * .008})`;
     skillCtx.lineWidth = 1;
     skillCtx.beginPath();
     skillCtx.ellipse(0, 0, radius, radius * (i * .12), skillRotation.y + i * .45, 0, Math.PI * 2);
